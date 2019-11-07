@@ -1,0 +1,52 @@
+.App{
+  max-width: 100vw;
+}
+// CLASSE GENERALE
+.full-size{
+  // classe de depanage pour simuler une div noir dans wirefram
+  width: 100%;
+  height: 200px;
+  background-color: #030303;
+  color: #fefefe;
+  button{
+    color: #fefefe;
+    background-color: #030303;
+  }
+}
+button{
+  max-width: 100px;
+}
+.flex-center{
+// classe qui positionne touts les elements dans sa div centrer horizontalement et verticalement
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+// balise generale
+li{
+  list-style: none;
+  text-decoration: none;
+  margin-left: 15px;
+}
+/* HEADER */
+header{
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+/* HOME */
+.home, .statistique{
+  width: 100vw;
+  min-height: 100vh;
+  img{
+    margin-top: 40px;
+  }
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    max-width: 150px;
+  }
+}
