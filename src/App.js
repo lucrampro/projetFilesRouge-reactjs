@@ -1,5 +1,5 @@
 import React from "react";
-// IMPORT DES DEPENDANCE, LIBRAIRIE..
+// IMPORT DES DEPENDANCE, LIBRAIRIE...
 import {
   BrowserRouter as Router,
   Switch,
