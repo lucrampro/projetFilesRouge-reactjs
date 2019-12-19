@@ -2,9 +2,9 @@ import React from "react";
 // IMPORT DES DEPENDANCE, LIBRAIRIE...
 import {
   BrowserRouter as Router,
-  Switch,
+  Switch, // eslint-disable-line
   Route,
-  Link
+  Link // eslint-disable-line
 } from "react-router-dom";
 // IMPORT DES STYLE
 import './App.scss';

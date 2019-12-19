@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 const Header = () => {
     return (
         <header>
-            <img src={'https://via.placeholder.com/100x50'} alt="" className="logo"/>
-            <li> <Link to="/statistique"> STATISTIQUE</Link> </li>
-            <li> <Link to="/"> HOME</Link> </li>
+            <img src={"https://via.placeholder.com/150x50"} alt=""/>
+            <div className="wrapper--menu">
+            <li> <Link to="/"> Accueil</Link> </li>
+            <li> <Link to="/statistique"> Carte intéractive</Link> </li>
+            </div>
         </header>
     );
 }
