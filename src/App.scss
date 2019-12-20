@@ -82,12 +82,14 @@ header{
   .chiffres{
     ul{
       display: flex;
+      width: 80vw;
+      margin: auto;
     }
     li{
       text-align: center;
       img{
-        height: 100px;
-        width: 80px;
+        max-height: 100px;
+        max-width: 100px;
         display: block;
        margin: auto;
        margin-bottom: 20px;

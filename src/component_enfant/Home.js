@@ -31,6 +31,7 @@ const Home = () => {
                 
             </div>
             <div className="chiffres">
+                <h2>Les jeux olympiques en chiffres</h2>
             <ul>
                 <li><img src={human} alt=""/> Entre 15 et 20 millions de visiteurs attendus</li>
                 <li><img src={stadium} alt=""/> 36 infrastructures pour
@@ -38,6 +39,14 @@ const Home = () => {
                 <li><img src={athlete} alt=""/> 10 500 athlètes attendus</li>
             </ul>
         </div>
+            <div className="acces">
+                <h2>
+                    L’accessibilité aujourd’hui en ile de france
+                </h2>
+                <p>
+                    1,3 millions de personnes en situation de handicap en Ile-de-France
+                </p>
+            </div>
         </div>
     );
 }
