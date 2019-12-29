@@ -8,20 +8,23 @@ import {
 } from "react-router-dom";
 // IMPORT DES STYLE
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.css';
 // IMPORT DES COMPONENTS ENFANTS
-import Header from './component_enfant/Header';
-import Home from './component_enfant/Home';
-import Statistique from './component_enfant/statistique'
+import Header from './component_enfant/Header.jsx';
+import Home from './component_enfant/Home.jsx';
+import Carte from './component_enfant/Carte.jsx'
+import Contact from './component_enfant/Contact.jsx'
 // DEBUT DU COMPONENT 
 class App extends React.Component{
   state = {}
   render () {
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <Router>
           <Header />
           <Route path="/" exact component={Home} />
-          <Route path="/statistique" exact component={Statistique} />
+          <Route path="/Carte" exact component={Carte} />
+          <Route path="/Contact" exact component={Contact} />
         </Router>
       </div>
     );

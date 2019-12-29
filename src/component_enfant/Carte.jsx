@@ -3,10 +3,10 @@ import React from 'react';
 import '../App.scss'
 // DEBUT DU COMPONENT
 
-const Statistique = () => {
+const Carte = () => {
     return(
-        <div className="statistique flex-center">
-            <h1>statistique</h1>
+        <div className="Carte flex-center">
+            <h1>Carte</h1>
             <img src={"https://via.placeholder.com/200x50"} alt=""/>
             <p>PARAGRAPE</p>
             <p>PARAGRAPE</p>
@@ -26,4 +26,4 @@ const Statistique = () => {
     )
 }
 // EXPORT
-export default Statistique
+export default Carte

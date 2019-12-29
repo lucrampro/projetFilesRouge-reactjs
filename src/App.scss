@@ -1,99 +1,43 @@
-.App{
-  max-width: 100vw;
+// --- GENERALE --- 
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
 }
-// CLASSE GENERALE
-.full-size{
-  // classe de depanage pour simuler une div noir dans wirefram
-  width: 100%;
-  height: 200px;
-  background-color: #030303;
-  color: #fefefe;
-  button{
-    color: #fefefe;
-    background-color: #030303;
-  }
+p{
+  font-size: 14px;
 }
-button{
-  max-width: 100px;
+a{
+  color: #000000!important;
 }
-.flex-center{
-// classe qui positionne touts les elements dans sa div centrer horizontalement et verticalement
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-// balise generale
-li{
+li {
   list-style: none;
-  text-decoration: none;
-  margin-left: 15px;
 }
-/* HEADER */
-header{
-  
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  .wrapper--menu{
-    width: 50%;
-    justify-content: space-around;
-    display: flex;
-    li{
-      a{
-        color: #000000;
-        text-decoration: none;
-      }
-    }
-  }
-}
-/* HOME */
 
-.home{
-  .home__top__bloc{
-    width: 100vw;
-    .prevention{
-      height: 500px;
-      justify-content: start;
-      img{
-        margin-right: 20px;
-      }
-      .top__bloc--text{
-        font-size: 13px;
-        width: 60%;
-        margin-right: 20px;
-        h1{
-          margin-top: 0;
-        }
-        p{
-          
-        }
-        .question{
-          font-weight: 700;
-          span{
-            display: block;
-            font-weight: 100;
-          }
-        }
-      }
-    }
+.trais-jaune{
+  width: 100%;
+  height: 2px;
+  background-color: #f1c800;
+  margin-top: 20px;
+}
+// --- HEADER --- 
+
+header{
+  margin-bottom: 5vh;
+  ul {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
   }
-  .chiffres{
-    ul{
-      display: flex;
-      width: 80vw;
-      margin: auto;
-    }
-    li{
-      text-align: center;
-      img{
-        max-height: 100px;
-        max-width: 100px;
-        display: block;
-       margin: auto;
-       margin-bottom: 20px;
-      }
+}
+
+// --- HOME --- 
+
+.home {
+  .transport{
+    span{
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
     }
   }
 }
