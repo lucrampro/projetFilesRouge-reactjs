@@ -1,10 +1,12 @@
 // --- GENERALE --- 
-h1{
+h2{
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 20px!important;
+  font-weight: bold!important;
 }
+
 p{
-  font-size: 14px;
+  font-size: 16px!important;
 }
 a{
   color: #000000!important;
@@ -18,6 +20,18 @@ li {
   height: 2px;
   background-color: #f1c800;
   margin-top: 20px;
+}
+.button--stavo{
+  width: 100px;
+  height: 30px;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin: 0;
+  }
 }
 // --- HEADER --- 
 
@@ -39,5 +53,8 @@ header{
       font-weight: 600;
       display: block;
     }
+  }
+  .wrapper--chiffres{
+    margin-top: 50px;
   }
 }
