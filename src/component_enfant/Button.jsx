@@ -5,9 +5,10 @@
  * 
  * Pour choisire le texte dans le bouton il faut passez par une props nomez title  
  */
+ 
 const Button = ({title}) =>{
   return(
-    <div className="button--stavo">
+    <div className="button--stavo rounded">
       <p>
         {title}
       </p>

@@ -16,7 +16,6 @@ import Carte from './component_enfant/Carte.jsx'
 import Contact from './component_enfant/Contact.jsx'
 // DEBUT DU COMPONENT 
 class App extends React.Component{
-  state = {}
   render () {
     return (
       <div className="App container-fluid">

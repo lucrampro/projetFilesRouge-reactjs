@@ -7,17 +7,19 @@ import pictoCarte from '../assets/img/picto-carte.png';
 import pictoTrainOne from '../assets/img/picto-train-one.png';
 import pictoTrainTwo from '../assets/img/picto-train-two.png';
 import pictoTrainThree from '../assets/img/picto-train-three.png';
+import transportImgOne from '../assets/img/transport--img--one.png';
 // IMPORT DES COMPONENTS
 import TraisJaune from './Trais--jaune'
 import Button from './Button'
 
 // DEBUT DU COMPONENT
+
 const Home = () => {
 	return (
 			<div className='home container'>
 				<div className="row wrapper--transport">
 					<div className="col-12 col-lg-4">
-						<img src="http://via.placeholder.com/300x416" alt=""/>
+						<img className="w-100 rounded" src={transportImgOne} alt=""/>
 					</div>
 					<div className="col-12 col-lg-8">
 						<div className="row">
