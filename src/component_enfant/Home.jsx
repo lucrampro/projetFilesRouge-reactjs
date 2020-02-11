@@ -11,12 +11,14 @@ import transportImgOne from '../assets/img/transport--img--one.png';
 // IMPORT DES COMPONENTS
 import TraisJaune from './Trais--jaune'
 import Button from './Button'
+import Header from './Header'
 
 // DEBUT DU COMPONENT
 
 const Home = () => {
 	return (
 			<div className='home container'>
+				<Header />
 				<div className="row wrapper--transport">
 					<div className="col-12 col-lg-4">
 						<img className="w-100 rounded" src={transportImgOne} alt=""/>

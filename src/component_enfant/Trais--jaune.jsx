@@ -7,9 +7,7 @@ import React from 'react';
 
 const TraisJaune = () => {
   return(
-    <div className="d-flex trais-jaune-wrapper">
-      <div className="trais-jaune"></div>
-    </div>
+    <div className="trais-jaune"></div>
   );
 }
 

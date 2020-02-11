@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // IMPORT DE COMPONENT, LIBS..
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import Filter from './Filter'
 // STYLE
 import '../App.scss'
 // DEBUT DU COMPONENT
@@ -14,31 +15,34 @@ const Carte = ({google}) => {
   // FUNCTION
   const onMarkerClick = (props, marker, e) => {
     console.log(this)
-    setSelectedPlace(props);
-    setActiveMarkers(marker);
-    setShowingInfoWindow(true);
+    // setSelectedPlace(props);
+    // setActiveMarkers(marker);
+    // setShowingInfoWindow(true);
+    alert('Tu as clique sur un marker')
   }
 
   const onMapClicked = (props) => {
-    if (showingInfoWindow === true) {
-      setShowingInfoWindow(false);
-      setActiveMarkers(null)
-    }
+    // if (showingInfoWindow === true) {
+    //   setShowingInfoWindow(false);
+    //   setActiveMarkers(null)
+    // }
+    alert('Tu a clique sur la map')
   }
+  
   
   // JSX 👉🏽
     return(
-      <div style={{ position: "relative", width:"98vw", height:"80vh"  }}>
+      <div className="google-maps" >
         <Map 
           google={google}
-          zoom={14} 
+          zoom={16} 
           initialCenter={{
             lat: 48.853,
             lng: 2.35
           }}
           onClick={onMapClicked}
         >
-  
+
         <Marker 
           name={'Current location'}
           onClick={onMarkerClick}
@@ -52,10 +56,13 @@ const Carte = ({google}) => {
             </div>
         </InfoWindow>
         <Marker
-          name={'Dolores park'}
-          position={{lat: 37.759703, lng: -122.428093}} />
+          name={'Metro berault'}
+          position={{lat: 48.8453687094, lng: 2.42824450629}}
+          onClick={onMarkerClick} />
+          
         <Marker />
-      </Map>
+        </Map>
+        <Filter/>
       </div>
     )
 }

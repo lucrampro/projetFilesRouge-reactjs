@@ -6,11 +6,11 @@ import {
   Route,
   Link // eslint-disable-line
 } from "react-router-dom";
+import gsap from 'gsap'
 // IMPORT DES STYLE
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 // IMPORT DES COMPONENTS ENFANTS
-import Header from './component_enfant/Header.jsx';
 import Home from './component_enfant/Home.jsx';
 import Carte from './component_enfant/Carte.jsx'
 import Contact from './component_enfant/Contact.jsx'
@@ -18,9 +18,8 @@ import Contact from './component_enfant/Contact.jsx'
 class App extends React.Component{
   render () {
     return (
-      <div className="App container-fluid">
+      <div className="App">
         <Router>
-          <Header />
           <Route path="/" exact component={Home} />
           <Route path="/Carte" exact component={Carte} />
           <Route path="/Contact" exact component={Contact} />
