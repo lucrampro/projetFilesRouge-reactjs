@@ -6,7 +6,6 @@ import {
   Route,
   Link // eslint-disable-line
 } from "react-router-dom";
-import gsap from 'gsap'
 // IMPORT DES STYLE
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.css';

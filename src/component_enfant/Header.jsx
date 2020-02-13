@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // ASSETS
 import Logo from '../assets/img/logo.png'
 // DEBUT DU COMPONENT ENFANT
+import '../style/header.scss'
 const Header = () => {
     return (
         <header className="container-fluid d-flex">

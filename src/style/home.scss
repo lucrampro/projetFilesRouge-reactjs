@@ -1,0 +1,51 @@
+// --- HOME --- 
+
+.home{
+  .wrapper--bloc--one{
+    height: 100vh;
+    width: 100vw;
+    background: url("../assets/img/home--background-one.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    position: relative;
+    h1{
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    p{
+      font-size: 20px !important;
+      max-width: 500px;
+      text-align: center;
+      line-height: 20px;
+      margin-top: 20px;
+    }
+    .separateur--blanc{
+      height: 50px;
+      width: 3px;
+      background-color: #ffffff;
+      border-radius: 100px;
+    }
+    button{
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      background-color: #f1c800;
+      border-radius: 50px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-top: 30px;
+    }
+    img{
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+  }
+  
+}

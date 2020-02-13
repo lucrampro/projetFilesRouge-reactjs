@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // eslint-disable-line
 // IMPORT DE COMPONENT, LIBS..
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Filter from './Filter'
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'; // eslint-disable-line
+import Filter from './Filter';
+import TraisJaune from './Trais--jaune';
 // STYLE
 import '../App.scss'
+import '../style/carte.scss'
 // DEBUT DU COMPONENT
 const Carte = ({google}) => {
 
   // HOOKS
-  const [selectedPlace, setSelectedPlace] = useState(null);
-  const [activeMarkers ,setActiveMarkers] = useState(null);
-  const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  // const [selectedPlace, setSelectedPlace] = useState(null);
+  // const [activeMarkers ,setActiveMarkers] = useState(null);
+  // const [showingInfoWindow, setShowingInfoWindow] = useState(false);
 
   // FUNCTION
   const onMarkerClick = (props, marker, e) => {
@@ -29,16 +31,42 @@ const Carte = ({google}) => {
     alert('Tu a clique sur la map')
   }
   
-  
+  const toto = [
+    {
+      id : 1,
+      name : "Restaurant",
+      title : "Le duc",
+      longitude : 2.4211505003287126,
+      latitude : 48.8512844148994,
+      active : false      
+    },
+    {
+      id : 2,
+      name : "Cinema",
+      title : "Gaumont",
+      longitude : 2.418229003786947,
+      latitude : 48.850736553471464,
+      active : false      
+    },
+  ]
+
+  const testToto = toto.map((item) => {
+    return(
+      <Marker name={item.name}
+      icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png"}
+      position={{lat: item.latitude, lng: item.longitude}} ></Marker>
+    )
+  })
+
   // JSX 👉🏽
     return(
       <div className="google-maps" >
         <Map 
           google={google}
-          zoom={16} 
+          zoom={14} 
           initialCenter={{
-            lat: 48.853,
-            lng: 2.35
+            lat: 48.924459,
+            lng: 2.360164
           }}
           onClick={onMapClicked}
         >
@@ -48,19 +76,17 @@ const Carte = ({google}) => {
           onClick={onMarkerClick}
         />
           
-        <InfoWindow
+          <TraisJaune position={{lat: 48.924459,
+            lng: 2.360164}} ></TraisJaune>
+
+        {/* <InfoWindow
           marker={activeMarkers}
           visible={showingInfoWindow}>
             <div>
               <h1>{selectedPlace}</h1>
             </div>
-        </InfoWindow>
-        <Marker
-          name={'Metro berault'}
-          position={{lat: 48.8453687094, lng: 2.42824450629}}
-          onClick={onMarkerClick} />
-          
-        <Marker />
+        </InfoWindow> */}
+        {testToto}
         </Map>
         <Filter/>
       </div>
