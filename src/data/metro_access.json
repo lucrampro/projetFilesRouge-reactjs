@@ -1,0 +1,83 @@
+[
+  {
+    "id": 352,
+    "nomArret": "Saint-Lazare",
+    "ufr": 1,
+    "latitude": 48.875564597,
+    "longitude": 2.3252509807,
+    "ligne": "14",
+    "affluence": 2
+  },
+  {
+    "id": 357,
+    "nomArret": "Olympiades",
+    "ufr": 1,
+    "latitude": 48.8269482412,
+    "longitude": 2.36703843005,
+    "ligne": "14",
+    "affluence": 0
+  },
+  {
+    "id": 500,
+    "nomArret": "Châtelet",
+    "ufr": 1,
+    "latitude": 48.8589561406,
+    "longitude": 2.34736125188,
+    "ligne": "14",
+    "affluence": 0
+  },
+  {
+    "id": 539,
+    "nomArret": "Madeleine",
+    "ufr": 1,
+    "latitude": 48.8695789298,
+    "longitude": 2.32416248546,
+    "ligne": "14",
+    "affluence": 0
+  },
+  {
+    "id": 540,
+    "nomArret": "Bibliothèque-François Mitterrand",
+    "ufr": 1,
+    "latitude": 48.8298306545,
+    "longitude": 2.37612000601,
+    "ligne": "14",
+    "affluence": 1
+  },
+  {
+    "id": 576,
+    "nomArret": "Gare de Lyon",
+    "ufr": 1,
+    "latitude": 48.8446521102,
+    "longitude": 2.37310814421,
+    "ligne": "14",
+    "affluence": 2
+  },
+  {
+    "id": 577,
+    "nomArret": "Cour Saint-Emilion",
+    "ufr": 1,
+    "latitude": 48.8333136748,
+    "longitude": 2.38729970105,
+    "ligne": "14",
+    "affluence": 0
+  },
+  {
+    "id": 747,
+    "nomArret": "Pyramides",
+    "ufr": 1,
+    "latitude": 48.8666137899,
+    "longitude": 2.33440752762,
+    "ligne": "14",
+    "affluence": 0
+  },
+  {
+    "id": 868,
+    "nomArret": "Bercy",
+    "ufr": 1,
+    "latitude": 48.8405427422,
+    "longitude": 2.37940945979,
+    "ligne": "14",
+    "affluence": 0
+  }
+]

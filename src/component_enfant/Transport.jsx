@@ -4,10 +4,9 @@ import '../App.scss'
 // DEBUT DU COMPONENTS
 
 const Transport = ({title, check}) => {
-  console.log(typeof check)
   const List = check.map( (item) => {
     return(
-      <li>
+      <li key >
           <input type="checkbox"/>
           <label htmlFor={item.text}> {item.text} </label>
       </li>

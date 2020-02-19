@@ -25,7 +25,7 @@ const Graphique = ({
       <h1>{title}</h1>
       <div className="wrapper--cheese">
       <div className="wrapper--img--center">
-        <img src={cheeseCenter} ></img>
+        <img alt="" src={cheeseCenter} ></img> 
       </div>
         <div className="cheese">
           <div className="quart one">

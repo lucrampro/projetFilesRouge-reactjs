@@ -1,8 +1,8 @@
-import React, { useState } from 'react'; // eslint-disable-line
+import React, { useState, useEffect } from 'react';
 // IMPORT DE COMPONENT, LIBS..
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'; // eslint-disable-line
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Filter from './Filter';
-import TraisJaune from './Trais--jaune';
+import metroAccess from '../assets/img/metro_accessible.png'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -10,52 +10,45 @@ import '../style/carte.scss'
 const Carte = ({google}) => {
 
   // HOOKS
-  // const [selectedPlace, setSelectedPlace] = useState(null);
-  // const [activeMarkers ,setActiveMarkers] = useState(null);
-  // const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState(null); // eslint-disable-line
+  const [activeMarkers ,setActiveMarkers] = useState(null);
+  const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  const [samirData, setSamirData] = useState([])
+  const [infoName, setInfoName] = useState('')
+
 
   // FUNCTION
+
   const onMarkerClick = (props, marker, e) => {
-    console.log(this)
-    // setSelectedPlace(props);
-    // setActiveMarkers(marker);
-    // setShowingInfoWindow(true);
-    alert('Tu as clique sur un marker')
+    setActiveMarkers(marker)
+    setShowingInfoWindow(true)
+    setSelectedPlace(props)
+    setInfoName(marker.name)
   }
 
-  const onMapClicked = (props) => {
-    // if (showingInfoWindow === true) {
-    //   setShowingInfoWindow(false);
-    //   setActiveMarkers(null)
-    // }
-    alert('Tu a clique sur la map')
-  }
-  
-  const toto = [
-    {
-      id : 1,
-      name : "Restaurant",
-      title : "Le duc",
-      longitude : 2.4211505003287126,
-      latitude : 48.8512844148994,
-      active : false      
-    },
-    {
-      id : 2,
-      name : "Cinema",
-      title : "Gaumont",
-      longitude : 2.418229003786947,
-      latitude : 48.850736553471464,
-      active : false      
-    },
-  ]
 
-  const testToto = toto.map((item) => {
+  const testData = samirData.map((item) => {
     return(
-      <Marker name={item.name}
-      icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png"}
-      position={{lat: item.latitude, lng: item.longitude}} ></Marker>
+      <Marker 
+        name={item.nom}
+        icon={metroAccess}
+        position={{lat: item.latitude, lng: item.longitude}}
+        onClick={onMarkerClick}
+        key={item.id}
+      >
+      </Marker>
     )
+  })
+
+  useEffect(() => {
+    fetch('http://samirchalal.fr/api/lieux_epreuves.json')
+    .then((response) => {
+      return response.json()
+    })
+    .then((usData) => {
+      setSamirData(usData)
+    })
+
   })
 
   // JSX 👉🏽
@@ -68,26 +61,22 @@ const Carte = ({google}) => {
             lat: 48.924459,
             lng: 2.360164
           }}
-          onClick={onMapClicked}
         >
-
-        <Marker 
-          name={'Current location'}
-          onClick={onMarkerClick}
-        />
-          
-          <TraisJaune position={{lat: 48.924459,
-            lng: 2.360164}} ></TraisJaune>
-
-        {/* <InfoWindow
+        {testData}
+        <Marker onClick={onMarkerClick}
+                name={'Current location'} />
+        <InfoWindow
           marker={activeMarkers}
-          visible={showingInfoWindow}>
-            <div>
-              <h1>{selectedPlace}</h1>
-            </div>
-        </InfoWindow> */}
-        {testToto}
+          visible={showingInfoWindow}
+        >
+          <div>
+        <h1>{infoName}</h1>
+          </div>
+        </InfoWindow>
+  
         </Map>
+
+
         <Filter/>
       </div>
     )
@@ -96,4 +85,3 @@ const Carte = ({google}) => {
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyA2n7hH6W6cHvZdRX2kBmL0b21ev6WWjag')
 })(Carte)
-// API KEYS AIzaSyDOKhizomA0Y-3RKB39y32HLm3QbghznNA
