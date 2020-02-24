@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // IMPORT DE COMPONENT, LIBS..
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Filter from './Filter';
-import metroAccess from '../assets/img/metro_accessible.png'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -13,9 +12,9 @@ const Carte = ({google}) => {
   const [selectedPlace, setSelectedPlace] = useState(null); // eslint-disable-line
   const [activeMarkers ,setActiveMarkers] = useState(null);
   const [showingInfoWindow, setShowingInfoWindow] = useState(false);
-  const [samirData, setSamirData] = useState([])
+  const [markerData, setMarkerData] = useState([])
   const [infoName, setInfoName] = useState('')
-
+  const [api, setApi] = useState('')
 
   // FUNCTION
 
@@ -27,29 +26,29 @@ const Carte = ({google}) => {
   }
 
 
-  const testData = samirData.map((item) => {
+  const testData = markerData.map((item, i) => {
     return(
       <Marker 
         name={item.nom}
-        icon={metroAccess}
+        icon={item.picto}
         position={{lat: item.latitude, lng: item.longitude}}
         onClick={onMarkerClick}
-        key={item.id}
+        key={`${i}__marker`}
+        className='marker'
       >
       </Marker>
     )
   })
 
   useEffect(() => {
-    fetch('http://samirchalal.fr/api/lieux_epreuves.json')
+    fetch(api)
     .then((response) => {
       return response.json()
     })
     .then((usData) => {
-      setSamirData(usData)
+      setMarkerData(usData)
     })
-
-  })
+  }, [api])
 
   // JSX 👉🏽
     return(
@@ -69,15 +68,13 @@ const Carte = ({google}) => {
           marker={activeMarkers}
           visible={showingInfoWindow}
         >
-          <div>
         <h1>{infoName}</h1>
-          </div>
         </InfoWindow>
   
         </Map>
 
 
-        <Filter/>
+        <Filter setApi={setApi}/>
       </div>
     )
 }

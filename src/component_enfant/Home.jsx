@@ -17,6 +17,7 @@ import '../style/home.scss'
 // IMPORT DES COMPONENTS
 import Header from './Header'
 import Graphique from './Graphique'
+import Footer from './Footer'
 // DEBUT DU COMPONENT
 
 const Home = () => {
@@ -62,6 +63,7 @@ const Home = () => {
 					fourQuartTitle="1,4 milliards d'euros"
 					fourQuartSubtitle="1,4 milliards d'euros ont déjà investi d'ici pour permettre d’atteindre 60% du réseau ferré accessible."
 				/>
+				<Footer/>
 			</div>
 	);
 }
