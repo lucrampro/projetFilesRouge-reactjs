@@ -6,6 +6,16 @@
   width: 100vw;
   height: 100vh;
   z-index: 10000;
+  img{
+    position: absolute;
+    z-index: 100000;
+    margin: auto;
+    max-width: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  }
   .wrapper--overlay {
     position: relative;
     height: 100%;

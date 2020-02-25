@@ -11,6 +11,8 @@ import cheeseTwoOne from '../assets/img/cheese--two--one.png';
 import cheeseTwoTwo from '../assets/img/cheese--two--two.png';
 import cheeseTwoThree from '../assets/img/cheese--two--three.png';
 import cheeseTwoFour from '../assets/img/cheese--two--four.png';
+import logoHetic from '../assets/img/logo--hetic.png'
+import logoStavo from '../assets/img/logo.png'
 // IMPORT DES STYLES, LIBS..
 import '../App.scss'
 import '../style/home.scss'
@@ -23,13 +25,32 @@ import Footer from './Footer'
 
 const Home = () => {
 	
+	const intro = () => {
+
+		let timeline = gsap.timeline()
+		let ease = 'ease: "expo.inOut"'
+
+		timeline.set('html', { overflow: 'hidden' })
+		.set('.logo--stavo, .logo--hetic', {scale: 0})
+		.to('.logo--stavo, .logo--hetic', 0.7, { scale: 1, ease })
+		.to('.logo--hetic', .45, { top: '40%', ease }, 'start')
+		.to('.logo--stavo', .45, { top: '65%', ease }, 'start')
+		.to('.logo--stavo, .logo--hetic', 1, { opacity: 0 }, 'start+=1.2')
+		.to('.black', 0.75, {height: 0, ease}, 'end')
+		.to('.yellow', 0.75, {height: 0, ease }, 'end+=0.1')
+		.set('.wrapper--intro', { display: 'none' })
+		.set('html', { overflowY: 'scroll' })
+
+	}
+
 	useEffect(() => {
-		gsap.to('.black', 1, { height: 0 })
-		gsap.to('.yellow', 1, { height: 0, delay: 0.05 })
+		intro()
 	})
 	return (
 			<div className='home'>
 				<div className="wrapper--intro">
+						<img className='logo--stavo' src={logoStavo} alt=""/>
+						<img className='logo--hetic' src={logoHetic} alt=""/>
 					<div className="wrapper--overlay">
 						<div className="overlay yellow"></div>
 						<div className="overlay black"></div>
