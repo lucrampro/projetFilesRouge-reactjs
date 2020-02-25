@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 // IMPORT DES STYLES, LIBS.. 
 import '../App.scss'
 
@@ -13,7 +13,6 @@ const Transport = ({
   metroNonAcess,
   gareAcess,
   gareNonAcess,
-  forteFrequentation,
   traveaux,
   helpChoise
 }) => {
@@ -26,8 +25,7 @@ const Transport = ({
     if (helpChoise === '1' ) {
       if (i === 0) {
         choiseLink = metroAcess
-      }
-      else {
+      } else {
         choiseLink = gareAcess
       }  
     }
@@ -35,29 +33,22 @@ const Transport = ({
     if (helpChoise === '2' ) {
       if (i === 0) {
         choiseLink = metroNonAcess
-      }
-      else if (i === 1) {
+      } else if (i === 1) {
         choiseLink = gareNonAcess
-      }
-      else {
+      } else {
         choiseLink = bus
       } 
     }
 
     if (helpChoise === '3' ) {
-      if (i === 0) {
-        choiseLink = forteFrequentation
-      }
-      else {
-        choiseLink = traveaux
-      }  
+      choiseLink = traveaux
     }
-
     
     return(
       <li key={`transport__${i}`} >
           <input onClick={() => { 
             setApi(choiseLink)
+            console.log(choiseLink)
            }} type="checkbox"/>
           <label htmlFor={item.text}> {item.text}  </label>
       </li>

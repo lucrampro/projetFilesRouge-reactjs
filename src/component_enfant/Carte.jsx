@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // IMPORT DE COMPONENT, LIBS..
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Filter from './Filter';
+import repereStade from '../assets/img/repere_stade.png'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -14,6 +15,7 @@ const Carte = ({google}) => {
   const [showingInfoWindow, setShowingInfoWindow] = useState(false);
   const [markerData, setMarkerData] = useState([])
   const [infoName, setInfoName] = useState('')
+  const [infoAffluence, setInfoAffluence] = useState('')
   const [api, setApi] = useState('')
 
   // FUNCTION
@@ -23,13 +25,15 @@ const Carte = ({google}) => {
     setShowingInfoWindow(true)
     setSelectedPlace(props)
     setInfoName(marker.name)
+    setInfoAffluence(marker.affluence)
   }
 
 
-  const testData = markerData.map((item, i) => {
+  const transportMarker = markerData.map((item, i) => {
     return(
       <Marker 
         name={item.nom}
+        affluence={item.affluence}
         icon={item.picto}
         position={{lat: item.latitude, lng: item.longitude}}
         onClick={onMarkerClick}
@@ -47,6 +51,7 @@ const Carte = ({google}) => {
     })
     .then((usData) => {
       setMarkerData(usData)
+      console.log(`les donne que tu montre ${usData[1]}`)
     })
   }, [api])
 
@@ -61,14 +66,14 @@ const Carte = ({google}) => {
             lng: 2.360164
           }}
         >
-        {testData}
-        <Marker onClick={onMarkerClick}
-                name={'Current location'} />
+        {transportMarker}
+        <Marker onClick={onMarkerClick} name={'votre choix de depart'} icon={repereStade}  />
         <InfoWindow
           marker={activeMarkers}
           visible={showingInfoWindow}
         >
-        <h1>{infoName}</h1>
+        <p>Lieux: {infoName}</p>
+        <p>Niveau d'affluence: {infoAffluence}</p>
         </InfoWindow>
   
         </Map>

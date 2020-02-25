@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // IMPORT DES ASSETS
 import pictoScroll from '../assets/img/scroll.png';
 import cheeseCenterOne from '../assets/img/cheese--center--one.png';
@@ -14,6 +14,7 @@ import cheeseTwoFour from '../assets/img/cheese--two--four.png';
 // IMPORT DES STYLES, LIBS..
 import '../App.scss'
 import '../style/home.scss'
+import gsap from 'gsap'
 // IMPORT DES COMPONENTS
 import Header from './Header'
 import Graphique from './Graphique'
@@ -21,8 +22,19 @@ import Footer from './Footer'
 // DEBUT DU COMPONENT
 
 const Home = () => {
+	
+	useEffect(() => {
+		gsap.to('.black', 1, { height: 0 })
+		gsap.to('.yellow', 1, { height: 0, delay: 0.05 })
+	})
 	return (
 			<div className='home'>
+				<div className="wrapper--intro">
+					<div className="wrapper--overlay">
+						<div className="overlay yellow"></div>
+						<div className="overlay black"></div>
+					</div>
+				</div>
 				<Header />
 				<div className="wrapper--bloc--one">
 					<h1>Vivez une expérience immersive</h1>

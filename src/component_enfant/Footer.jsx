@@ -18,6 +18,7 @@ const Footer = () => {
         <li> <Link to="/Carte"> Carte intéractive </Link> </li>
         <li> <Link to="/Contact"> Contact </Link> </li>
       </ul>
+      <p className="hetic">©2020 - Hetic. Tout droit réservé </p>
     </div>
   )
 }

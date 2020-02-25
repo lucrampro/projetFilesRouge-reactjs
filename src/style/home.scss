@@ -1,6 +1,29 @@
 // --- HOME --- 
 
 .home{
+.wrapper--intro{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  .wrapper--overlay {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .overlay{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      &.black{
+        background-color: #000000;
+      }
+      &.yellow{
+        background-color: #f1c800;
+      }
+    }
+  }
+}
   .wrapper--bloc--one{
     height: 100vh;
     width: 100vw;

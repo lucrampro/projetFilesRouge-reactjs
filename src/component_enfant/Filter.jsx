@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TraisJaune from './Trais--jaune';
 import Transport from './Transport'
 import gsap from 'gsap';
+import iconeMenu from '../assets/img/icone--menu--filtres.png'
 // STYLE
 import '../App.scss'
 // DEBUT DU COMPONENTS
@@ -11,14 +12,12 @@ const Filter = ({setApi}) =>{
   const [toogleMenu, setToogleMenu] = useState(false)
   // FUNCTION
   const openMenu = () => {
-    if( toogleMenu === false ){
-      gsap.to('.filter', 0.5, { x:0 })
-      setToogleMenu(true)
-    } else {
-      gsap.to('.filter', 0.5, { x: '-100%' })
-      setToogleMenu(false)
-    }
+
+    let xFilter = toogleMenu ? '-100%' : 0;
+    gsap.to('.filter', 0.5, { x: xFilter });
+    setToogleMenu(!toogleMenu)
   }
+
   return(
     <div className="filter">
     <div className="filter--wrapper">
@@ -31,11 +30,16 @@ const Filter = ({setApi}) =>{
       </p>
         <Transport setApi={setApi} helpChoise='1' metroAcess='http://samirchalal.fr/api/access_metros.json?ufr=1' gareAcess='http://samirchalal.fr/api/access_rers.json?ufr=1' title="Gares et/ou arrêts accessibles" check={[{ text: "Stations de métros"  },{ text: "Gares RER"}]} />
         <Transport setApi={setApi} helpChoise='2' metroNonAcess='http://samirchalal.fr/api/access_metros.json?ufr=0' gareNonAcess='http://samirchalal.fr/api/access_rers.json?ufr=0' bus='http://samirchalal.fr/api/access_buses.json?ufr=0'  title="Gares et/ou arrêts non-accessibles" check={[{ text: "Stations de métros"  },{ text: "Gares RER"}, { text: "Arrêts de bus" }]} />
-        <Transport setApi={setApi} helpChoise='3' forteFrequentation='http://samirchalal.fr/api/access_rers.json' traveaux='http://samirchalal.fr/api/travaux_en_cours.json' title="Autres éléments" check={[{ text: "Gares/Arrêts et station avec une forte fréquentation"  },{ text: "Travaux en cours sur le réseau SNCF/RATP"}]} />
+        <Transport setApi={setApi} helpChoise='3' traveaux='http://samirchalal.fr/api/travaux_en_cours.json' title="Autres éléments" check={[{ text: "Travaux en cours sur le réseau SNCF/RATP"}]} />
       <p className="reset">Réinitialiser les filtres</p>
       <button className="recap">Voir le recapitulatif</button>
       <button className="choose">Choisir un autre repère</button>
-      <div className="open-menu" onClick={openMenu} ></div>
+      <div className="open-menu" onClick={openMenu} >
+        <div className="under-wrapper--menu">
+          <img src={iconeMenu} alt=""/>
+          <p>Filtres</p>  
+        </div>
+      </div>
       {/* FIN */}
     </div>
   </div>
