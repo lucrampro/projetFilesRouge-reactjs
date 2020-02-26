@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 // IMPORT DE COMPONENT, LIBS..
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Filter from './Filter';
+import Start from './Start'
 import repereStade from '../assets/img/repere_stade.png'
+import iconeWalk from '../assets/img/icone--walk.png'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -19,6 +21,8 @@ const Carte = ({google}) => {
   const [infoLigne, setInfoLigne] = useState('')
   const [infoTransport, setInfoTransport] = useState('')
   const [api, setApi] = useState('')
+  const [startLongitude, setstartLongitude] = useState(48.924459)
+  const [startLatitude, setstartLatitude] = useState(2.360164)
 
   // FUNCTION
 
@@ -51,6 +55,9 @@ const Carte = ({google}) => {
   })
 
   useEffect(() => {
+    console.log(startLatitude)
+    console.log(startLongitude)
+
     fetch(api)
     .then((response) => {
       return response.json()
@@ -59,21 +66,27 @@ const Carte = ({google}) => {
       setMarkerData(usData)
       console.log(`les donne que tu montre ${usData[1]}`)
     })
-  }, [api])
+  }, [api] ,[startLatitude], [startLatitude])
 
   // JSX 👉🏽
     return(
       <div className="google-maps" >
         <Map 
           google={google}
-          zoom={10} 
+          zoom={20} 
           initialCenter={{
-            lat: 48.924459,
-            lng: 2.360164
+            // lat: 48.924459,
+            // lng: 2.360164
+            lat : {startLatitude},
+            lng : {startLongitude}
           }}
         >
         {transportMarker}
-        <Marker onClick={onMarkerClick} name={'votre choix de depart'} icon={repereStade}  />
+        <Marker
+          onClick={onMarkerClick}
+          name={'votre choix de depart'}
+          position={{lat: {startLatitude}, lng: {startLongitude}}}
+        />
         <InfoWindow
           marker={activeMarkers}
           visible={showingInfoWindow}
@@ -81,8 +94,12 @@ const Carte = ({google}) => {
           <div className="info">
             <img src={infoTransport} alt=""/>
             <img src={infoLigne} alt=""/>
-            <p>Lieux: {infoName}</p>
-            <p>Niveau d'affluence: {infoAffluence}</p>
+            <h2>Lieux: {infoName}</h2>
+            <div className="affluence d-flex">
+              <img src={iconeWalk} alt=""/>
+              <p>{infoAffluence}</p>
+            </div>
+            
           </div>
         </InfoWindow>
   
@@ -90,6 +107,7 @@ const Carte = ({google}) => {
 
 
         <Filter setApi={setApi}/>
+        <Start longitude={setstartLongitude} latitude={setstartLatitude}/>
       </div>
     )
 }

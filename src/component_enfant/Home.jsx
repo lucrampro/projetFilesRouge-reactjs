@@ -28,6 +28,7 @@ const Home = () => {
 	const intro = () => {
 
 		let timeline = gsap.timeline()
+		let scroll = gsap.timeline({ repeat: -1})
 		let ease = 'ease: "expo.inOut"'
 
 		timeline.set('html', { overflow: 'hidden' })
@@ -40,6 +41,9 @@ const Home = () => {
 		.to('.yellow', 0.75, {height: 0, ease }, 'end+=0.1')
 		.set('.wrapper--intro', { display: 'none' })
 		.set('html', { overflowY: 'scroll' })
+
+		scroll.to('.picto--scroll', 1.5, { y: '20px', ease: "expo.inOut" })
+		.to('.picto--scroll', 0.5, { y: 0 }).timeScale(1.5)
 
 	}
 
@@ -58,11 +62,11 @@ const Home = () => {
 				</div>
 				<Header />
 				<div className="wrapper--bloc--one">
-					<h1>Vivez une expérience immersive</h1>
-					<p>Visionnez et provoyez rapidement de potentiels <span className="text-warning">futurs</span> <span className="text-warning">travaux d’accessiblité</span> en vue des JO Paris 2024</p>
+					<h1>Les données dont vous avez besoin, a portée de clic</h1>
+					<p>Visionnez et provoyée facilement de potentiels <span className="text-warning">futurs</span> <span className="text-warning">travaux d’accessiblités</span> en vue des JO Paris 2024</p>
 					<div className="separateur--blanc"></div>
 					<button>Carte interactive</button>
-					<img src={pictoScroll} alt=""/>
+					<img className='picto--scroll' src={pictoScroll} alt=""/>
 				</div>
 				<Graphique
 					title="Les Jeux Olympiques en quelques chiffres"
