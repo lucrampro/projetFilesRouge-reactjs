@@ -17,7 +17,6 @@ const Transport = ({
   helpChoise
 }) => {
 
-
   const List = check.map( (item, i) => {
     // setApi.
     let choiseLink = ''
@@ -47,13 +46,14 @@ const Transport = ({
     return(
       <li key={`transport__${i}`} >
           <input onClick={() => { 
-            setApi(choiseLink)
-            console.log(choiseLink)
+            setApi(choiseLink);
            }} type="checkbox"/>
           <label htmlFor={item.text}> {item.text}  </label>
       </li>
     )
   })
+
+
   return(
     <div className="transport">
       <div className="trais-gris"></div>

@@ -16,16 +16,20 @@ const Carte = ({google}) => {
   const [markerData, setMarkerData] = useState([])
   const [infoName, setInfoName] = useState('')
   const [infoAffluence, setInfoAffluence] = useState('')
+  const [infoLigne, setInfoLigne] = useState('')
+  const [infoTransport, setInfoTransport] = useState('')
   const [api, setApi] = useState('')
 
   // FUNCTION
 
-  const onMarkerClick = (props, marker, e) => {
+  const onMarkerClick = (props, marker, e, InfoWindow) => {
     setActiveMarkers(marker)
     setShowingInfoWindow(true)
     setSelectedPlace(props)
     setInfoName(marker.name)
     setInfoAffluence(marker.affluence)
+    setInfoLigne(marker.ligne)
+    setInfoTransport(marker.transport)
   }
 
 
@@ -35,6 +39,8 @@ const Carte = ({google}) => {
         name={item.nom}
         affluence={item.affluence}
         icon={item.picto}
+        ligne={item.pictoNumeroLigne}
+        transport={item.pictoTypeTransport}
         position={{lat: item.latitude, lng: item.longitude}}
         onClick={onMarkerClick}
         key={`${i}__marker`}
@@ -60,7 +66,7 @@ const Carte = ({google}) => {
       <div className="google-maps" >
         <Map 
           google={google}
-          zoom={14} 
+          zoom={10} 
           initialCenter={{
             lat: 48.924459,
             lng: 2.360164
@@ -72,8 +78,12 @@ const Carte = ({google}) => {
           marker={activeMarkers}
           visible={showingInfoWindow}
         >
-        <p>Lieux: {infoName}</p>
-        <p>Niveau d'affluence: {infoAffluence}</p>
+          <div className="info">
+            <img src={infoTransport} alt=""/>
+            <img src={infoLigne} alt=""/>
+            <p>Lieux: {infoName}</p>
+            <p>Niveau d'affluence: {infoAffluence}</p>
+          </div>
         </InfoWindow>
   
         </Map>
