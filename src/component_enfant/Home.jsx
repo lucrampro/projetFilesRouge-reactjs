@@ -27,11 +27,12 @@ const Home = () => {
 	
 	const intro = () => {
 
-		let timeline = gsap.timeline()
+		let intro = gsap.timeline()
 		let scroll = gsap.timeline({ repeat: -1})
 		let ease = 'ease: "expo.inOut"'
-
-		timeline.set('html', { overflow: 'hidden' })
+		// intro
+		intro.set('html', { overflow: 'hidden' })
+		.set('.wrapper--bloc--one', { opacity: 0 })
 		.set('.logo--stavo, .logo--hetic', {scale: 0})
 		.to('.logo--stavo, .logo--hetic', 0.7, { scale: 1, ease })
 		.to('.logo--hetic', .45, { top: '40%', ease }, 'start')
@@ -40,8 +41,10 @@ const Home = () => {
 		.to('.black', 0.75, {height: 0, ease}, 'end')
 		.to('.yellow', 0.75, {height: 0, ease }, 'end+=0.1')
 		.set('.wrapper--intro', { display: 'none' })
+		.to('.wrapper--bloc--one', 1, { opacity: 1 })
 		.set('html', { overflowY: 'scroll' })
 
+		// PICTO QUI MONTRE AU UTILISATEUR QU'IL Y A DU CONTENU SI ON SCROLL
 		scroll.to('.picto--scroll', 1.5, { y: '20px', ease: "expo.inOut" })
 		.to('.picto--scroll', 0.5, { y: 0 }).timeScale(1.5)
 

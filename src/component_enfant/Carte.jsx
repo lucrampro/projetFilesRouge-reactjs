@@ -16,15 +16,18 @@ const Carte = ({google}) => {
   const [activeMarkers ,setActiveMarkers] = useState(null);
   const [showingInfoWindow, setShowingInfoWindow] = useState(false);
   const [markerData, setMarkerData] = useState([])
+  const [lieuData, setlieuData] = useState([])
   const [infoName, setInfoName] = useState('')
   const [infoAffluence, setInfoAffluence] = useState('')
   const [infoLigne, setInfoLigne] = useState('')
   const [infoTransport, setInfoTransport] = useState('')
   const [api, setApi] = useState('')
-  const [startLongitude, setstartLongitude] = useState(48.924459)
-  const [startLatitude, setstartLatitude] = useState(2.360164)
+  const [startLongitude, setstartLongitude] = useState() // 48.924459
+  const [startLatitude, setstartLatitude] = useState() // 2.360164
 
   // FUNCTION
+  console.log(startLongitude)
+  console.log(startLatitude)
 
   const onMarkerClick = (props, marker, e, InfoWindow) => {
     setActiveMarkers(marker)
@@ -54,16 +57,37 @@ const Carte = ({google}) => {
     )
   })
 
-  useEffect(() => {
+  const LieuMarker = lieuData.map((item, i) => {
+    return(
+      <Marker
+      onClick={onMarkerClick}
+      name={item.nom}
+      position={{lat: item.latitude, lng: item.longitude}}
+      icon={repereStade}
+      key={`${i}__lieu`}
+    />
+    )
+  })
 
+  useEffect(() => {
+      // Data des lieux
+      fetch('http://samirchalal.fr/api/lieux_epreuves.json')
+      .then((response) => {
+        return response.json() 
+      })
+      .then((toto) => {
+        setlieuData(toto)
+        console.log(`datat des lieu ${toto}`)
+      })
+    // Data des marker
     fetch(api)
     .then((response) => {
       return response.json()
     })
     .then((usData) => {
       setMarkerData(usData)
-      console.log(`les donne que tu montre ${usData[1]}`)
     })
+  
   }, [api] ,[startLatitude], [startLatitude])
 
   // JSX 👉🏽
@@ -71,20 +95,16 @@ const Carte = ({google}) => {
       <div className="google-maps" >
         <Map 
           google={google}
-          zoom={20} 
+          zoom={14} 
           initialCenter={{
-            // lat: 48.924459,
-            // lng: 2.360164
-            lat : startLongitude,
-            lng : startLatitude
+            lat: 48.924459,
+            lng: 2.360164
+            // lat : startLongitude,
+            // lng : startLatitude
           }}
         >
         {transportMarker}
-        <Marker
-          onClick={onMarkerClick}
-          name={'votre choix de depart'}
-          position={{lat: startLongitude, lng: startLatitude}}
-        />
+        {LieuMarker}
         <InfoWindow
           marker={activeMarkers}
           visible={showingInfoWindow}

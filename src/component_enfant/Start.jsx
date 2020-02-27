@@ -12,31 +12,30 @@ const [dataLieu, setdataLieu] = useState([])
 
 
 const onCardClick = (event , props) => {
-  // setActiveMarkers(marker)
-  // setShowingInfoWindow(true)
-  // setSelectedPlace(props)
-  // setInfoName(marker.name)
-  // setInfoAffluence(marker.affluence)
-  // setInfoLigne(marker.ligne)
-  // setInfoTransport(marker.transport)
   dataLieu.map((item , i) => { // eslint-disable-line
     if (event.target.id == i){ // eslint-disable-line
 
-      longitude(Number(event.target.getAttribute('longitude')))
-      latitude(Number(event.target.getAttribute('latitude')))
+      longitude(+(event.target.getAttribute('longitude')))
+      latitude(+(event.target.getAttribute('latitude')))
       document.querySelector('.wrapper--start').style.display = 'none'
+      console.log( `LONGITUDE : ${+(event.target.getAttribute('longitude'))}` )
+      console.log( `LATITUDE : ${+(event.target.getAttribute('latitude'))}` )
+
     } 
   })
 }
 
 useEffect(() => {
-  fetch('http://samirchalal.fr/api/lieux_epreuves.json')
-  .then((response) => {
-    return response.json()
-  })
-  .then((data) => {
-    setdataLieu(data)
-  })
+  async function fetchMap(){
+    await fetch('http://samirchalal.fr/api/lieux_epreuves.json')
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      setdataLieu(data)
+    })
+  }
+  fetchMap()
 })
 
 const lieuCard = dataLieu.map((item , i) => {
