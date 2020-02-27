@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Filter from './Filter';
 import Start from './Start'
-import repereStade from '../assets/img/repere_stade.png'
+import repereStade from '../assets/img/repere_stade.png' // eslint-disable-line
 import iconeWalk from '../assets/img/icone--walk.png'
 // STYLE
 import '../App.scss'
@@ -55,8 +55,6 @@ const Carte = ({google}) => {
   })
 
   useEffect(() => {
-    console.log(startLatitude)
-    console.log(startLongitude)
 
     fetch(api)
     .then((response) => {
@@ -77,15 +75,15 @@ const Carte = ({google}) => {
           initialCenter={{
             // lat: 48.924459,
             // lng: 2.360164
-            lat : {startLatitude},
-            lng : {startLongitude}
+            lat : startLongitude,
+            lng : startLatitude
           }}
         >
         {transportMarker}
         <Marker
           onClick={onMarkerClick}
           name={'votre choix de depart'}
-          position={{lat: {startLatitude}, lng: {startLongitude}}}
+          position={{lat: startLongitude, lng: startLatitude}}
         />
         <InfoWindow
           marker={activeMarkers}
@@ -97,7 +95,7 @@ const Carte = ({google}) => {
             <h2>Lieux: {infoName}</h2>
             <div className="affluence d-flex">
               <img src={iconeWalk} alt=""/>
-              <p>{infoAffluence}</p>
+              <p>affluence {infoAffluence}</p>
             </div>
             
           </div>

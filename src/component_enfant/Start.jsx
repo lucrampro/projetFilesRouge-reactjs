@@ -19,10 +19,9 @@ const onCardClick = (event , props) => {
   // setInfoAffluence(marker.affluence)
   // setInfoLigne(marker.ligne)
   // setInfoTransport(marker.transport)
-  dataLieu.map((item , i) => {
-    if (event.target.id == i){
-      console.log(Number(event.target.getAttribute('longitude')))
-      console.log(Number(event.target.getAttribute('latitude')))
+  dataLieu.map((item , i) => { // eslint-disable-line
+    if (event.target.id == i){ // eslint-disable-line
+
       longitude(Number(event.target.getAttribute('longitude')))
       latitude(Number(event.target.getAttribute('latitude')))
       document.querySelector('.wrapper--start').style.display = 'none'

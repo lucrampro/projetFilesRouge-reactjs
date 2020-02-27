@@ -16,6 +16,7 @@ useEffect(() => {
             color: '#000000'
         })
     })
+    console.log(Link)
 })
     return (
         <header className="header container-fluid d-flex">
