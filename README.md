@@ -8,7 +8,7 @@ Rendre une Datalyse qui permettrais de rendre la vile de Paris plus "Smart city"
 >
 **SUJET**
 >
-Donnez acces au personnes au situation d'handicap au différentes épreuve de l'événement
+Donnez de la data au professionelles qui s'occupe de l'habilitation des transport en commun pour les personne en situation d'hadicap
 >
 **ROLES**
 >
