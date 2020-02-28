@@ -88,7 +88,7 @@ const Carte = ({google}) => {
       setMarkerData(usData)
     })
   
-  }, [api] ,[startLatitude], [startLatitude])
+  }, [api, startLatitude, startLongitude])
 
   // JSX 👉🏽
     return(

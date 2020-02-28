@@ -10,7 +10,6 @@ const Start = ({longitude, latitude}) => {
 
 const [dataLieu, setdataLieu] = useState([])
 
-
 const onCardClick = (event , props) => {
   dataLieu.map((item , i) => { // eslint-disable-line
     if (event.target.id == i){ // eslint-disable-line
@@ -39,9 +38,10 @@ useEffect(() => {
 })
 
 const lieuCard = dataLieu.map((item , i) => {
-  
+
   return(
     <Link to="/Carte" id={i} onClick={onCardClick} longitude={item.longitude} latitude={item.latitude} key={i} className='card' >
+      {/* <img src={item.picture} alt=""/> */}
       <img src={item.picture} alt=""/>
       <h2>{item.nom}</h2>
       <p>{item.ville}</p>
