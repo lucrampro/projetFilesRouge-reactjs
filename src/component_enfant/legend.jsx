@@ -14,7 +14,7 @@ const Legend = () => {
   return(
     <div className="wrapper--legend">
       <div className="legend">
-      <h2>INFOS</h2>
+      <h2>INFO</h2> 
       <ul>
         <li>
         <img src={stade} alt=""/>
