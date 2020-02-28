@@ -4,7 +4,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import gsap from 'gsap'
 import Filter from './Filter';
 import Start from './Start'
-import Legend from './Legend'
+import Legend from './Legend.jsx'
 import repereStade from '../assets/img/repere_stade.png' // eslint-disable-line
 import iconeWalk from '../assets/img/icone--walk.png'
 import infobulle from '../assets/img/infobulle.png'
