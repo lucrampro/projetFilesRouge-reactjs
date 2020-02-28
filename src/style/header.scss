@@ -8,10 +8,12 @@ header{
   ul {
     width: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     li{
+      margin: 0 50px;
       a{
         color: #fefefe;
+        text-transform: uppercase;
       }
     }
   }

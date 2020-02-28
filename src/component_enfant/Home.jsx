@@ -88,7 +88,7 @@ const Home = () => {
 					fourQuartSubtitle="Plusieurs épreuves tous les jours du 26 juillet au 11 août 2024, incluant les qualifications et les finales."
 				/>
 				<Graphique
-					title="L’accessbilité aujourd’hui en Ile-de-france"
+					title="L’accessibilité aujourd’hui en Ile-de-france"
 					cheeseCenter={cheeseCenterTwo}
 					firstQuartImage={cheeseTwoOne}
 					firstQuartTitle="10% de la population" 
