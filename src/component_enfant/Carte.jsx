@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 // IMPORT DE COMPONENT, LIBS..
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import gsap from 'gsap'
 import Filter from './Filter';
 import Start from './Start'
+import Legend from './Legend'
 import repereStade from '../assets/img/repere_stade.png' // eslint-disable-line
 import iconeWalk from '../assets/img/icone--walk.png'
+import infobulle from '../assets/img/infobulle.png'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -24,10 +27,9 @@ const Carte = ({google}) => {
   const [api, setApi] = useState('')
   const [startLongitude, setstartLongitude] = useState() // 48.924459
   const [startLatitude, setstartLatitude] = useState() // 2.360164
+  const [showInfobulle, setshowInfobull] = useState(false)
 
   // FUNCTION
-  console.log(startLongitude)
-  console.log(startLatitude)
 
   const onMarkerClick = (props, marker, e, InfoWindow) => {
     setActiveMarkers(marker)
@@ -69,6 +71,21 @@ const Carte = ({google}) => {
     )
   })
 
+  const showInfoClick = () => {
+    let infoClick = gsap.timeline()
+    if( showInfobulle === false) {
+      infoClick.set('.wrapper--legend', { zIndex: 10000 })
+      .to('.wrapper--legend', 0.5, { opacity: 1 } )
+      setshowInfobull(true)
+      console.log(`data info ${showInfobulle}`)
+    } else {
+      infoClick.set('.wrapper--legend', { zIndex: '-1' })
+      .to('.wrapper--legend', 0.5, { opacity: 0 } )
+      setshowInfobull(false)
+    }
+
+  }
+
   useEffect(() => {
       // Data des lieux
       fetch('http://samirchalal.fr/api/lieux_epreuves.json')
@@ -87,6 +104,9 @@ const Carte = ({google}) => {
     .then((usData) => {
       setMarkerData(usData)
     })
+    
+    //
+    gsap.set('.wrapper--legend', { opacity: 0, zIndex: 0 })
   
   }, [api, startLatitude, startLongitude])
 
@@ -120,12 +140,11 @@ const Carte = ({google}) => {
             
           </div>
         </InfoWindow>
-  
+        <Legend/>
         </Map>
-
-
         <Filter setApi={setApi}/>
-        <Start longitude={setstartLongitude} latitude={setstartLatitude}/>
+        <img src={infobulle} onClick={showInfoClick} alt="" className="infobulle"/>
+        {/* <Start longitude={setstartLongitude} latitude={setstartLatitude}/> */}
       </div>
     )
 }

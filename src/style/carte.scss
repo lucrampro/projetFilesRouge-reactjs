@@ -121,6 +121,13 @@
       }
     }
   }
+  .infobulle{
+    z-index: 1000000;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    top: 20px;
+  }
   .info{
     img{
       max-width: 20px;
