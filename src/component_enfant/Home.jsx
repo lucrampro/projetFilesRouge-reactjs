@@ -21,6 +21,7 @@ import gsap from 'gsap'
 import Header from './Header'
 import Graphique from './Graphique'
 import Footer from './Footer'
+import {Link} from "react-router-dom";
 // DEBUT DU COMPONENT
 
 const Home = () => {
@@ -65,10 +66,10 @@ const Home = () => {
 				</div>
 				<Header />
 				<div className="wrapper--bloc--one">
-					<h1>Les données dont vous avez besoin, a portée de clic</h1>
+					<h1>Visualisez Les travaux en cours et possible pour l’accessibilité des transports dans Paris</h1>
 					<p>Visionnez et provoyée facilement de potentiels <span className="text-warning">futurs</span> <span className="text-warning">travaux d’accessiblités</span> en vue des JO Paris 2024</p>
 					<div className="separateur--blanc"></div>
-					<button>Carte interactive</button>
+                    <button> <Link to="/Carte">Carte interactive </Link></button>
 					<img className='picto--scroll' src={pictoScroll} alt=""/>
 				</div>
 				<Graphique

@@ -1,7 +1,7 @@
 import React from 'react';
 // IMPORT DES STYLES, LIBS.. 
 import '../App.scss'
-
+import gsap from 'gsap'
 // DEBUT DU COMPONENTS
 
 const Transport = ({
@@ -16,6 +16,13 @@ const Transport = ({
   traveaux,
   helpChoise
 }) => {
+
+    let linkColor = (event) => {
+        let color = gsap.timeline()
+
+        color.set('label', { color: 'black' })
+            .to(event.target, 0.5, { color: '#f1c800' })
+    }
 
   const List = check.map( (item, i) => {
     // setApi.
@@ -45,10 +52,10 @@ const Transport = ({
     
     return(
       <li key={`transport__${i}`} >
-          <input onClick={() => { 
-            setApi(choiseLink);
-           }} type="checkbox"/>
-          <label htmlFor={item.text}> {item.text}  </label>
+          <label onClick={(event) => {
+              setApi(choiseLink);
+              linkColor(event)
+          }} htmlFor={item.text}> {item.text}  </label>
       </li>
     )
   })

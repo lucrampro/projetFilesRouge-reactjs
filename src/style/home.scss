@@ -48,6 +48,7 @@
     h1{
       color: #ffffff;
       text-transform: uppercase;
+      text-align: center;
     }
     p{
       font-size: 20px !important;
@@ -71,6 +72,24 @@
       color: #ffffff;
       text-transform: uppercase;
       margin-top: 30px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: white;
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+
+        a {
+          color: #f1c800;
+        }
+      }
     }
     .picto--scroll{
       position: absolute;

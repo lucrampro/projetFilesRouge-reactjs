@@ -14,6 +14,11 @@ header{
       a{
         color: #fefefe;
         text-transform: uppercase;
+
+        &:hover {
+          color: #f1c800;
+          text-decoration: none;
+        }
       }
     }
   }
