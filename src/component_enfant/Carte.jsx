@@ -5,10 +5,12 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import gsap from 'gsap'
 import Filter from './Filter';
 import Start from './Start'
-import Legend from './Legend.jsx'
+import Legend from './legend.jsx'
 import repereStade from '../assets/img/repere_stade.png' // eslint-disable-line
 import iconeWalk from '../assets/img/icone--walk.png'
 import infobulle from '../assets/img/infobulle.png'
+import returnHome from '../assets/img/MenuBurger.png'
+import { Link } from 'react-router-dom'
 // STYLE
 import '../App.scss'
 import '../style/carte.scss'
@@ -68,6 +70,7 @@ const Carte = ({google}) => {
       position={{lat: item.latitude, lng: item.longitude}}
       icon={repereStade}
       key={`${i}__lieu`}
+      affluence={item.nombreSpectateurs}
     />
     )
   })
@@ -78,7 +81,6 @@ const Carte = ({google}) => {
       infoClick.set('.wrapper--legend', { zIndex: 10000 })
       .to('.wrapper--legend', 0.5, { opacity: 1 } )
       setshowInfobull(true)
-      console.log(`data info ${showInfobulle}`)
     } else {
       infoClick.set('.wrapper--legend', { zIndex: '-1' })
       .to('.wrapper--legend', 0.5, { opacity: 0 } )
@@ -93,9 +95,8 @@ const Carte = ({google}) => {
       .then((response) => {
         return response.json() 
       })
-      .then((toto) => {
-        setlieuData(toto)
-        console.log(`datat des lieu ${toto}`)
+      .then((lieu) => {
+        setlieuData(lieu)
       })
     // Data des marker
     fetch(api)
@@ -105,9 +106,7 @@ const Carte = ({google}) => {
     .then((usData) => {
       setMarkerData(usData)
     })
-    
-    //
-    gsap.set('.wrapper--legend', { opacity: 0, zIndex: 0 })
+    gsap.set('.wrapper--legend', { opacity: 0, zIndex: '-1' })
   
   }, [api, startLatitude, startLongitude])
 
@@ -116,12 +115,10 @@ const Carte = ({google}) => {
       <div className="google-maps" >
         <Map 
           google={google}
-          zoom={14} 
+          zoom={16}
           initialCenter={{
-            lat: 48.924459,
-            lng: 2.360164
-            // lat : startLongitude,
-            // lng : startLatitude
+            lat: 48.866109,
+            lng: 2.312454
           }}
         >
         {transportMarker}
@@ -136,7 +133,7 @@ const Carte = ({google}) => {
             <h2>Lieux: {infoName}</h2>
             <div className="affluence d-flex">
               <img src={iconeWalk} alt=""/>
-              <p>affluence {infoAffluence}</p>
+              <p>affluence/spectateurs: {infoAffluence}</p>
             </div>
             
           </div>
@@ -144,8 +141,9 @@ const Carte = ({google}) => {
         <Legend/>
         </Map>
         <Filter setApi={setApi}/>
-        <img src={infobulle} onClick={showInfoClick} alt="" className="infobulle"/>
-        {/* <Start longitude={setstartLongitude} latitude={setstartLatitude}/> */}
+        <img src={infobulle} onClick={() => { showInfoClick() }} alt="" className="infobulle"/>
+          <Link to='/'> <img src={returnHome} alt="" className="returnHome"/> </Link>
+              <Start longitude={setstartLongitude} latitude={setstartLatitude}/>
       </div>
     )
 }

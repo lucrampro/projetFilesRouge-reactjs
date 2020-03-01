@@ -56,11 +56,15 @@ const Legend = () => {
         <li className="affluence">
           <img src={petiteafflucence} alt=""/>
           <p>Moins de 15 millions de voyageurs par an</p>
-          <img src={moyenneafflucence} alt=""/>
-          <p>Entre 16 et 31 millions de voyageurs par an</p>
-          <img src={grosseafflucence} alt=""/>
-          <p>Plus de 32 millions de voyageurs par an</p>
         </li>
+          <li className="affluence">
+              <img src={moyenneafflucence} alt=""/>
+              <p>Entre 16 et 31 millions de voyageurs par an</p>
+          </li>
+          <li className="affluence">
+              <img src={grosseafflucence} alt=""/>
+              <p>Plus de 32 millions de voyageurs par an</p>
+          </li>
       </ul>
       </div>
     </div>
