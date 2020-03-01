@@ -66,8 +66,8 @@ const Home = () => {
 				</div>
 				<Header />
 				<div className="wrapper--bloc--one">
-					<h1>Visualisez Les travaux en cours et possible pour l’accessibilité des transports dans Paris</h1>
-					<p>Visionnez et provoyée facilement de potentiels <span className="text-warning">futurs</span> <span className="text-warning">travaux d’accessiblités</span> en vue des JO Paris 2024</p>
+					<h1>Visualisez les travaux en cours et possibles pour l’accessibilité des transports dans Paris</h1>
+					<p>Visionnez et provoyée facilement de potentiels <span className="text-warning">futurs</span> <span className="text-warning">travaux d’accessibilités</span> en vue des JO Paris 2024</p>
 					<div className="separateur--blanc"></div>
                     <button> <Link to="/Carte">Carte interactive </Link></button>
 					<img className='picto--scroll' src={pictoScroll} alt=""/>

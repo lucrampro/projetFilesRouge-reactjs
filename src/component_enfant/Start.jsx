@@ -17,9 +17,6 @@ const onCardClick = (event , props) => {
       longitude(+(event.target.getAttribute('longitude')))
       latitude(+(event.target.getAttribute('latitude')))
       document.querySelector('.wrapper--start').style.display = 'none'
-      console.log( `LONGITUDE : ${+(event.target.getAttribute('longitude'))}` )
-      console.log( `LATITUDE : ${+(event.target.getAttribute('latitude'))}` )
-
     } 
   })
 }
@@ -41,7 +38,6 @@ const lieuCard = dataLieu.map((item , i) => {
 
   return(
     <Link to="/Carte" id={i} onClick={onCardClick} longitude={item.longitude} latitude={item.latitude} key={i} className='card' >
-      {/* <img src={item.picture} alt=""/> */}
       <img src={item.picture} alt=""/>
       <h2>{item.nom}</h2>
       <p>{item.ville}</p>

@@ -80,7 +80,6 @@ const Carte = ({google}) => {
       infoClick.set('.wrapper--legend', { zIndex: 10000 })
       .to('.wrapper--legend', 0.5, { opacity: 1 } )
       setshowInfobull(true)
-      console.log(`data info ${showInfobulle}`)
     } else {
       infoClick.set('.wrapper--legend', { zIndex: '-1' })
       .to('.wrapper--legend', 0.5, { opacity: 0 } )
@@ -95,9 +94,8 @@ const Carte = ({google}) => {
       .then((response) => {
         return response.json() 
       })
-      .then((toto) => {
-        setlieuData(toto)
-        console.log(`datat des lieu ${toto}`)
+      .then((lieu) => {
+        setlieuData(lieu)
       })
     // Data des marker
     fetch(api)
@@ -107,8 +105,6 @@ const Carte = ({google}) => {
     .then((usData) => {
       setMarkerData(usData)
     })
-    
-    //
     gsap.set('.wrapper--legend', { opacity: 0, zIndex: '-1' })
   
   }, [api, startLatitude, startLongitude])
@@ -122,8 +118,6 @@ const Carte = ({google}) => {
           initialCenter={{
             lat: 48.866109,
             lng: 2.312454
-            // lat : startLongitude,
-            // lng : startLatitude
           }}
         >
         {transportMarker}
