@@ -8,12 +8,13 @@ Rendre une Datalyse qui permettrais de rendre la vile de Paris plus "Smart city"
 >
 **SUJET**
 >
-Donnez de la data au professionelles qui s'occupe de l'habilitation des transport en commun pour les personne en situation d'hadicap
+Donnez de la data au professionelles qui s'occupe de l'habilitation des transport en commun pour les personne en situation d'hadicap a fin de les aidées a priorisé les transport a habilité
 >
 **ROLES**
 >
-Designer: Cassandra, Lucas, Mohamed
+Designer: Cassandra Doux, Lucas Cunault, Mohamed Karoui
 >
-Dévelopeur back-end: Samir
->
-Développeur front-end: Lucien
+Dévelopeur back-end: Samir Chalal
+> 
+Développeur front-end: Lucien Ramassamy 
+> Lien de l'argumentaire du la partit Front end : argumentaire-projet-fil-rouge-frontend-lucien-ramassamy.netlify.com
