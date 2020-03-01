@@ -17,5 +17,6 @@ Designer: Cassandra Doux, Lucas Cunault, Mohamed Karoui
 Dévelopeur back-end: Samir Chalal
 > 
 Développeur front-end: Lucien Ramassamy 
+> 
 [Lien de l'argumentaire du la partit Front end] : http://argumentaire-projet-fil-rouge-frontend-lucien-ramassamy.netlify.com
 
