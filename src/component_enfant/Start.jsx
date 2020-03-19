@@ -23,7 +23,7 @@ const onCardClick = (event , props) => {
 
 useEffect(() => {
   async function fetchMap(){
-    await fetch('http://samirchalal.fr/api/lieux_epreuves.json')
+    await fetch('https://samirchalal.fr/api/lieux_epreuves.json')
     .then((response) => {
       return response.json()
     })
